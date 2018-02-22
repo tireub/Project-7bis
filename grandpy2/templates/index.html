@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="GrandPyBot">
+    <meta name="author" content="Guillaume Maucort">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>GrandPyBot</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.min.js') }}"></script>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">GrandPy est là pour discuter avec toi.</h3>
+              <img src="{{ url_for ('static', filename='img/logo_logo-oc.png') }}">
+
+            </div>
+          </div>
+
+
+
+          <div class="discussion">
+
+            <ul>
+              <h1 class="cover-heading">Bonjour mon grand. Quel est l'endroit que tu recherches?</h1>
+            </ul>
+
+            <div class="form-group search-margin">
+                <form>
+                  <input class="form-control" name="search_location"
+                         id="inputText" >
+                </form>
+            </div>
+
+            <div class="map_display" id="map">
+
+            </div>
+            <div class="quote_display">{{ quote }}
+
+            </div>
+
+            </div>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Guillaume Maucort. développeur d'applications python. Projet 7.
+                <a href="http://getbootstrap.com">Github</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.js') }}"></script>
+
+
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cover.js') }}"></script>
+
+  </body>
+</html>
