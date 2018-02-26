@@ -9,16 +9,10 @@ app.config.from_object('config')
 
 @app.route('/')
 def index():
-    if "search_location" in request.args:
-        research_location = request.args.get("search_location")
-        displayed_quote = research()
-        displayed_quote.search(research_location)
-        quote = displayed_quote.page_py.content[:500]
+    return render_template('index.html', quote=quote)
 
-    else:
-        quote = ""
-
-
-    return render_template('index.html',
-                           quote=quote)
-
+def quote(location):
+    displayed_quote = research()
+    displayed_quote.search(location)
+    quote = displayed_quote.page_py.content[:200] + "..."
+    return(quote)
