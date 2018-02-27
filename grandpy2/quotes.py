@@ -1,4 +1,9 @@
-import wikipedia
+import wikipedia, requests, googlemaps
+
+from googlemaps import places
+
+
+gmaps = googlemaps.Client(key='AIzaSyBN18OElCDJ6nPJvc_d-FLMZXdKVjpyTj0')
 
 
 class research:
@@ -12,6 +17,7 @@ class research:
 
         try:
             self.page_py = wikipedia.page(desired_location)
+
         except wikipedia.exceptions.DisambiguationError as e:
             self.articles = e.options
 
@@ -26,6 +32,24 @@ class research:
 
         # for a in self.articles:
         #    self.html_list.append(a)
+
+
+class map:
+
+    def __init__(self):
+        self.mapLink = ""
+        self.postalAdress = ""
+
+    def search(self, desired_location):
+        place_info = places.places_autocomplete(gmaps, desired_location)
+
+        code = (place_info[0]["place_id"])
+        req = requests.get('https://maps.googleapis.com/maps/api/geocode/json?place_id=' + code + '&key=AIzaSyDJROK9kvhu37rCtiJ_AmeKAPnesV0dDcI')
+        print(req.json()["results"])
+        self.postalAdress = req.json()["results"][0]["formatted_address"]
+
+
+
 
 
 

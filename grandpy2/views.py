@@ -11,8 +11,20 @@ app.config.from_object('config')
 def index():
     return render_template('index.html', quote=quote)
 
-def quote(location):
+@app.route('/geoloc')
+def geoloc():
+    location = request.args.get("location")
+    adress = map()
+    adress.search(location)
+    locationAdress = adress.postalAdress
+    return(locationAdress)
+
+
+
+@app.route('/quote')
+def quote():
+    location = request.args.get("location")
     displayed_quote = research()
     displayed_quote.search(location)
-    quote = displayed_quote.page_py.content[:200] + "..."
-    return(quote)
+    endQuote = displayed_quote.page_py.content[:200] + "..."
+    return(endQuote)
