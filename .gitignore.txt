@@ -1,0 +1,6 @@
+
+__pycache__
+app.db
+
+geckodriver.log
+.cache/

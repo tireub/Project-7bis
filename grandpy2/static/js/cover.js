@@ -14,11 +14,11 @@ $(function() {
 
 
             $map.empty();
-            $map.append('<div class="map_display"><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBN18OElCDJ6nPJvc_d-FLMZXdKVjpyTj0&q='+text+'"></iframe></div>') ;
+            $map.append('<div class="map_display"><iframe width="400" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBN18OElCDJ6nPJvc_d-FLMZXdKVjpyTj0&q='+text+'"></iframe></div>') ;
             $list.append('<li>' + text + '</li>');
-
-            postData(text);
             extractAdress(text)
+            postData(text);
+
 
             $('input:text').val('');
 
@@ -34,7 +34,7 @@ function postData(input) {
         data: { location: input },
         success: function(response) {
 
-            $list.append('<li>' + response + '</li>');
+            $list.append('<li>Pour ton information, ' + response + '</li>');
 
             }
     });
@@ -46,7 +46,7 @@ function extractAdress(input) {
         url: ("/geoloc"),
         data: { location: input },
         success: function(response){
-            $list.append('<li>' + response + '</li>');
+            $list.append('<li>Ce que tu cherches a pour adresse : ' + response + '.</li>');
             }
         });
 }

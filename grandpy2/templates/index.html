@@ -35,37 +35,39 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">GrandPy est là pour discuter avec toi.</h3>
-              <img src="{{ url_for ('static', filename='img/logo_logo-oc.png') }}">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h1 class="masthead-brand">GrandPy est là pour discuter avec toi.</h1>
+                </div>
+                <div class="col-lg-4" id="image">
+                  <img src="{{ url_for ('static', filename='img/logo_logo-oc.png') }}">
+                </div>
+              </div>
 
             </div>
           </div>
 
 
 
-          <div class="discussion">
+          <div class="inner cover">
 
-            <ul>
-              <h1 class="cover-heading">Bonjour mon grand. Quel est l'endroit que tu recherches?</h1>
-            </ul>
 
-            <div class="form-group search-margin">
+            <div class="col-lg-8">
+              <ul class="list-unstyled">
+                <h2 class="cover-heading">Bonjour mon grand. Quel est l'endroit que tu recherches?</h2>
+              </ul>
 
-                  <input class="form-control" name="search_location"
-                         id="inputText" autocomplete="off" >
-
+              <div class="form-group search-margin">
+                    <input class="form-control" name="search_location"
+                           id="inputText" autocomplete="off" >
+              </div>
             </div>
 
-            <div class="map_display" id="map">
-
+            <div class="col_lg_4">
+              <div class="map_display" id="map"></div>
             </div>
 
-            <div class="quote_display" id="quote">
 
-
-            </div>
-
-            </div>
           </div>
 
           <div class="mastfoot">

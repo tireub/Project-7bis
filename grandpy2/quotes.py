@@ -38,15 +38,20 @@ class map:
 
     def __init__(self):
         self.mapLink = ""
-        self.postalAdress = ""
+        self.postalAddress = ""
 
     def search(self, desired_location):
-        place_info = places.places_autocomplete(gmaps, desired_location)
 
+        # Extract information regarding the searched location
+        place_info = places.places_autocomplete(gmaps, desired_location)
+        # Extract google maps code
         code = (place_info[0]["place_id"])
+        # Reverse geocode
         req = requests.get('https://maps.googleapis.com/maps/api/geocode/json?place_id=' + code + '&key=AIzaSyDJROK9kvhu37rCtiJ_AmeKAPnesV0dDcI')
-        print(req.json()["results"])
-        self.postalAdress = req.json()["results"][0]["formatted_address"]
+        print(req.json())
+
+        # Extract postal address
+        self.postalAddress = req.json()["results"][0]["formatted_address"]
 
 
 
