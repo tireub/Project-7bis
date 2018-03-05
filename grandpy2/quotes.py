@@ -1,4 +1,4 @@
-import wikipedia, requests, googlemaps
+import requests, wikipedia, googlemaps
 
 from googlemaps import places
 
