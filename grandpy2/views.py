@@ -11,6 +11,13 @@ app.config.from_object('config')
 def index():
     return render_template('index.html', quote=quote)
 
+@app.route('/parse')
+def parse():
+    location = request.args.get("location")
+    parsed_location = parser()
+    parsed_location.reject_useless_info(location)
+    return (parsed_location.result)
+
 @app.route('/geoloc')
 def geoloc():
     location = request.args.get("location")
@@ -20,11 +27,14 @@ def geoloc():
     return(locationAddress)
 
 
-
 @app.route('/quote')
 def quote():
     location = request.args.get("location")
     displayed_quote = research()
     displayed_quote.search(location)
-    endQuote = displayed_quote.page_py.content[:300] + "..."
+    endQuote = displayed_quote.page_py
     return(endQuote)
+
+
+
+
