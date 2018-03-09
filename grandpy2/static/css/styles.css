@@ -55,6 +55,7 @@ input[type='text'] {
   border-radius: 3px;
 }
 
+
 input[type='submit'] {
   background-color: #fff;
   color: #000;
@@ -71,5 +72,7 @@ input[type='submit'] {
   margin-top: 60px;
   width: 10%;
 }
+
+
 
 

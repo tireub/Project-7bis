@@ -1,4 +1,4 @@
- var $list, $inputText, $map, $quote, parsed;
+var $list, $inputText, $map, $quote, parsed;
     $list = $('ul');
     $inputText = $("#inputText");
     $map = $("#map");

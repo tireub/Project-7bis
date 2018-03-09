@@ -1,4 +1,6 @@
-import requests, wikipedia, googlemaps
+import requests
+import wikipedia
+import googlemaps
 
 from googlemaps import places
 
@@ -47,11 +49,13 @@ class map:
         # Extract google maps code
         code = (place_info[0]["place_id"])
         # Reverse geocode
-        req = requests.get('https://maps.googleapis.com/maps/api/geocode/json?place_id=' + code + '&key=AIzaSyDJROK9kvhu37rCtiJ_AmeKAPnesV0dDcI')
-
+        req = requests.get('https://maps.googleapis.com/maps/api/geocode/'
+                           'json?place_id=' + code +
+                           '&key=AIzaSyDJROK9kvhu37rCtiJ_AmeKAPnesV0dDcI')
 
         # Extract postal address
         self.postalAddress = req.json()["results"][0]["formatted_address"]
+
 
 class parser:
     def __init__(self):
@@ -75,22 +79,5 @@ class parser:
 
         else:
             self.result = input_sentance
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
